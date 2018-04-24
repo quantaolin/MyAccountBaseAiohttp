@@ -1,4 +1,3 @@
-import trafaret
 import argparse
 import asyncio
 import logging
@@ -9,26 +8,13 @@ from aiohttp import web
 from myaccount.db import setup_engine
 from myaccount.middlewares import setup_middlewares
 from myaccount.routes import setup_routes
+from myaccount.configverify import TRAFARET
 from trafaret_config import commandline
 '''
 Created on 2018Äê4ÔÂ24ÈÕ
 
 @author: linqt
 '''
-TRAFARET = trafaret.Dict({
-    trafaret.Key('mysql'):
-        trafaret.Dict({
-            'database': trafaret.String(),
-            'user': trafaret.String(),
-            'password': trafaret.String(),
-            'host': trafaret.String(),
-            'port': trafaret.Int(),
-            'minsize': trafaret.Int(),
-            'maxsize': trafaret.Int(),
-        }),
-    trafaret.Key('host'): trafaret.IP,
-    trafaret.Key('port'): trafaret.Int(),
-})
 
 def init(loop, argv):
     ap = argparse.ArgumentParser()
