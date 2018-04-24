@@ -7,7 +7,7 @@ import aiohttp_jinja2
 from aiohttp import web
 from myaccount.db import setup_engine
 from myaccount.middlewares import setup_middlewares
-from myaccount.routes import setup_routes
+from myaccount.routes import setup_routes,setup_static_routes
 from myaccount.configverify import TRAFARET
 from trafaret_config import commandline
 '''
@@ -40,6 +40,7 @@ def init(loop, argv):
     setup_engine(app)
     # setup views and routes
     setup_routes(app)
+    setup_static_routes(app)
     setup_middlewares(app)
 
     return app
