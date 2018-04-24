@@ -7,6 +7,6 @@ Created on 2018Äê4ÔÂ24ÈÕ
 '''
 
 @routes.post('/openacc')
-async def handler(request):
+async def openacc(request):
     data = {'some': 'data'}
     return web.json_response(data)
