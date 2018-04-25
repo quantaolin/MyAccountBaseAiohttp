@@ -11,7 +11,7 @@ from myaccount.routes import setup_routes,setup_static_routes
 from myaccount.configverify import TRAFARET
 from trafaret_config import commandline
 '''
-Created on 2018Äê4ÔÂ24ÈÕ
+Created on 2018-04-25 11:08:35
 
 @author: linqt
 '''
