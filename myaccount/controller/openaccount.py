@@ -1,5 +1,4 @@
 from myaccount.routes import routes
-from aiohttp import web
 '''
 Created on 2018-04-25 11:08:35
 
@@ -9,4 +8,4 @@ Created on 2018-04-25 11:08:35
 @routes.get('/openacc')
 async def openacc(request):
     data = {'some': 'data'}
-    return web.json_response(data)
+    return data
