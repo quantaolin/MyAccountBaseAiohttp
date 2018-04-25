@@ -1,4 +1,3 @@
-import asyncio
 import aiomysql
 '''
 Created on  2018-04-25 11:08:35
