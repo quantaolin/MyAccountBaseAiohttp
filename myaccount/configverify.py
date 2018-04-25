@@ -11,6 +11,7 @@ TRAFARET = trafaret.Dict({
             'password': trafaret.String(),
             'host': trafaret.String(),
             'port': trafaret.Int(),
+            'db': trafaret.String(),
             'minsize': trafaret.Int(),
             'maxsize': trafaret.Int(),
             'connect_timeout': trafaret.Int(),

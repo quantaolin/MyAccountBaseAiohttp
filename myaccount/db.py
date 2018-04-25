@@ -9,6 +9,7 @@ async def mysql_engine(app):
     pool = await aiomysql.create_pool(
         host=conf['host'], 
         port=conf['port'],
+        db=conf['db'],
         user=conf['user'], 
         password=conf['password'],
         minsize=conf['minsize'],
