@@ -4,7 +4,7 @@ Created on  2018-04-25 11:08:35
 
 @author: quantaolin
 '''
-async def init_mysql(app):
+async def mysql_engine(app):
     conf = app['config']['mysql']
     pool = await aiomysql.create_pool(
         host=conf['host'], 
@@ -19,7 +19,9 @@ async def init_mysql(app):
         db='mysql', 
         loop=app.loop)
     app['db'] = pool
-    
-async def close_mysql(app):
+    yield
     app['db'].close()
     await app['db'].wait_closed()
+    
+def setup_engine(app):
+    app.cleanup_ctx.append(mysql_engine) 
