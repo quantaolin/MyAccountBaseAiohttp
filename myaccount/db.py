@@ -17,7 +17,6 @@ async def mysql_engine(app):
         connect_timeout=conf['connect_timeout'],
         autocommit=True,
         init_command='select 1 from dual',
-        db='mysql', 
         loop=app.loop)
     app['db'] = pool
     yield
