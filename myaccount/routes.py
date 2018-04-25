@@ -6,6 +6,8 @@ Created on 2018-04-25 11:08:35
 '''
 routes = web.RouteTableDef()
 
+from myaccount.controller import *
+
 def setup_routes(app):
     app.add_routes(routes)
     setup_static_routes(app)

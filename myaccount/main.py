@@ -19,7 +19,7 @@ Created on 2018-04-25 11:08:35
 def init(loop, argv):
     ap = argparse.ArgumentParser()
     commandline.standard_argparse_options(ap,
-                                          default_config='./config/config.yaml')
+                                          default_config='../config/config.yaml')
     #
     # define your command-line arguments here
     #

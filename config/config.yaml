@@ -3,7 +3,7 @@ mysql:
   port: 5432
   user: aiohttpdemo_user
   password: aiohttpdemo_user  
-  connect_timeout:5000
+  connect_timeout: 5000
   minsize: 1
   maxsize: 5
 

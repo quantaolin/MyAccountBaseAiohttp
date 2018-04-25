@@ -7,13 +7,13 @@ Created on 2018-04-25 11:08:35
 TRAFARET = trafaret.Dict({
     trafaret.Key('mysql'):
         trafaret.Dict({
-            'database': trafaret.String(),
             'user': trafaret.String(),
             'password': trafaret.String(),
             'host': trafaret.String(),
             'port': trafaret.Int(),
             'minsize': trafaret.Int(),
             'maxsize': trafaret.Int(),
+            'connect_timeout': trafaret.Int(),
         }),
     trafaret.Key('host'): trafaret.IP,
     trafaret.Key('port'): trafaret.Int(),
