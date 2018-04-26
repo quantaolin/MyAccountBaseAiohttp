@@ -33,7 +33,7 @@ async def excute_insertorupdate(db,sqlstr,param):
             r=cur.rowcount
     return r
 
-async def excrte_select_dic(db,sqlstr,param):
+async def excute_select_dic(db,sqlstr,param):
     async with db.acquire() as conn:
         async with conn.cursor(aiomysql.DictCursor) as cur:
             await cur.execute(sqlstr,param)

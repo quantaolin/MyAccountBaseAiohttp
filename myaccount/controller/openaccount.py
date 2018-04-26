@@ -20,7 +20,7 @@ async def openacc(request):
 async def queryacc(request):
     sqlstr="select * from bus.user where user_id = %s"
     param=('42aqe')
-    r= await db.excrte_select_dic(request.app['db'],sqlstr,param)
+    r= await db.excute_select_dic(request.app['db'],sqlstr,param)
     print(r)
     data = {'result': r}
     return data
