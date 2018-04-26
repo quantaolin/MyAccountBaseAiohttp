@@ -1,5 +1,6 @@
 from myaccount.routes import routes
 import aiomysql
+import myaccount.db as db
 '''
 Created on 2018-04-25 11:08:35
 
@@ -10,11 +11,8 @@ Created on 2018-04-25 11:08:35
 async def openacc(request):
     sqlstr="insert into bus.user (user_id,user_name,sex,card_num) values (%s,%s,%s,%s)"
     param=('42aq','Tom','02','4444444')
-    async with request.app['db'].acquire() as conn:
-        async with conn.cursor() as cur:
-            await cur.execute(sqlstr,param)
-            r= cur.rowcount
-            print(r)
+    r= await db.excute_insertorupdate( request.app['db'],sqlstr,param)
+    print(r)
     data = {'result': r}
     return data
 
@@ -22,10 +20,7 @@ async def openacc(request):
 async def queryacc(request):
     sqlstr="select * from bus.user where user_id = %s"
     param=('123456')
-    async with request.app['db'].acquire() as conn:
-        async with conn.cursor(aiomysql.DictCursor) as cur:
-            await cur.execute(sqlstr,param)
-            r= await cur.fetchall()
-            print(r)
+    r= await db.excrte_select_dic(request.app['db'],sqlstr,param)
+    print(r)
     data = {'result': r}
     return data

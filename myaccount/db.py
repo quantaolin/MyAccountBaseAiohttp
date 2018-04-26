@@ -24,4 +24,18 @@ async def mysql_engine(app):
     await app['db'].wait_closed()
     
 def setup_engine(app):
-    app.cleanup_ctx.append(mysql_engine) 
+    app.cleanup_ctx.append(mysql_engine)
+    
+async def excute_insertorupdate(db,sqlstr,param):
+    async with db.acquire() as conn:
+        async with conn.cursor() as cur:
+            await cur.execute(sqlstr,param)
+            r=cur.rowcount
+    return r
+
+async def excrte_select_dic(db,sqlstr,param):
+    async with db.acquire() as conn:
+        async with conn.cursor(aiomysql.DictCursor) as cur:
+            await cur.execute(sqlstr,param)
+            r= await cur.fetchall()
+    return r
