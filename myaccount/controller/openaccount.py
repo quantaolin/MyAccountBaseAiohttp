@@ -1,5 +1,4 @@
 from myaccount.routes import routes
-import aiomysql
 import myaccount.db as db
 '''
 Created on 2018-04-25 11:08:35
