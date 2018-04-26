@@ -1,4 +1,5 @@
 from myaccount.routes import routes
+import aiomysql
 '''
 Created on 2018-04-25 11:08:35
 
@@ -13,6 +14,18 @@ async def openacc(request):
         async with conn.cursor() as cur:
             await cur.execute(sqlstr,param)
             r= cur.rowcount
+            print(r)
+    data = {'result': r}
+    return data
+
+@routes.get('/queryacc')
+async def queryacc(request):
+    sqlstr="select * from bus.user where user_id = %s"
+    param=('123456')
+    async with request.app['db'].acquire() as conn:
+        async with conn.cursor(aiomysql.DictCursor) as cur:
+            await cur.execute(sqlstr,param)
+            r= await cur.fetchall()
             print(r)
     data = {'result': r}
     return data
