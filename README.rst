@@ -1,1 +1,10 @@
-我去
+环境
+---------
+aiohttp
+aiohttp_jinja2
+trafaret_config
+mysql-connector-python 
+aiomysql
+aioredis
+aiojobs
+gunicorn
