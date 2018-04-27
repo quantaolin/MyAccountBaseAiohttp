@@ -10,7 +10,7 @@ Created on 2018-04-25 11:08:35
 async def openacc(request):
     userId=request.match_info['userId']
     userSqlstr="insert into bus.user (user_id,user_name,sex,card_num) values (%s,%s,%s,%s)"
-    userParam=(userId,request.match_info['userName'],request.match_info['cardNum'])
+    userParam=(userId,request.match_info['userName'],request.match_info['sex'],request.match_info['cardNum'])
     accSqlstr="insert into bus.account (ACCOUNT_ID,ACCOUNT_TYPE,USER_ID,BALANCE) values (%s,%s,%s,%s)"
     accParam=(request.match_info['accountId'],request.match_info['accountType'],userId,0)
     async with request.app['db'].acquire() as conn:
