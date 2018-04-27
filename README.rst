@@ -9,3 +9,11 @@ aiomysql
 aioredis
 aiojobs
 gunicorn
+
+Polls (demo for aiohttp)
+========================
+
+Example of polls project using aiohttp_, aiopg_ and aiohttp_jinja2_,
+similar to django one.
+
+Installation
