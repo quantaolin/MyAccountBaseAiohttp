@@ -8,11 +8,12 @@ Created on 2018-04-25 11:08:35
 
 @routes.post('/openacc')
 async def openacc(request):
-    userId=request.match_info['userId']
+    data = await request.post()
+    userId=data['userId']
     userSqlstr="insert into bus.user (user_id,user_name,sex,card_num) values (%s,%s,%s,%s)"
-    userParam=(userId,request.match_info['userName'],request.match_info['sex'],request.match_info['cardNum'])
+    userParam=(userId,data['userName'],data['sex'],data['cardNum'])
     accSqlstr="insert into bus.account (ACCOUNT_ID,ACCOUNT_TYPE,USER_ID,BALANCE) values (%s,%s,%s,%s)"
-    accParam=(request.match_info['accountId'],request.match_info['accountType'],userId,0)
+    accParam=(data['accountId'],data['accountType'],userId,0)
     async with request.app['db'].acquire() as conn:
         async with conn.cursor() as cur:
             conn.begin()
@@ -31,13 +32,14 @@ async def openacc(request):
             else:
                 conn.commit()      
     print(r)
-    data = {'result': r}
-    return data
+    resutl = {'result': r}
+    return resutl
 
 @routes.post('/queryacc')
 async def queryacc(request):
+    data = await request.post()
     sqlstr="select * from bus.user where user_id = %s"
-    param=(request.match_info['userId'])
+    param=(data['userId'])
     r= await db.excute_select_dic(request.app['db'],sqlstr,param)
     print(r)
     data = {'result': r}
