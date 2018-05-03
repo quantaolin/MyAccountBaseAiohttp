@@ -16,19 +16,19 @@ async def openacc(request):
     accParam=(data['accountId'],data['accountType'],userId,0)
     async with request.app['db'].acquire() as conn:
         async with conn.cursor() as cur:
-            conn.begin()
+            await conn.begin()
             try:
                 await cur.execute(userSqlstr,userParam)
                 r=cur.rowcount
                 if(r != 1):
-                    raise Exception("插入用户表失败")
+                    raise Exception("user sql execute fails")
                 await cur.execute(accSqlstr,accParam)
                 print(cur.description)
                 r=cur.rowcount
                 if(r != 1):
-                    raise Exception("插入账户表失败")
+                    raise Exception("account sql execute fails")
             except Exception as e:
-                print("执行sql出错",e.args)
+                print("sql execute fails",e.args)
                 await conn.rollback()
                 r=0
             else:
