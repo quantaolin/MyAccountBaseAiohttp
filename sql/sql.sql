@@ -15,9 +15,9 @@ CREATE TABLE `order` (
   `ID` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `ORDER_ID` varchar(45) NOT NULL,
   `ORDER_TYPE` varchar(45) NOT NULL,
-  `FROM_USER_ID` varchar(45) NOT NULL,
+  `FROM_USER_ID` varchar(45),
   `AMOUNT` decimal(10,0) NOT NULL,
-  `TO_USER_ID` varchar(45) NOT NULL,
+  `TO_USER_ID` varchar(45),
   PRIMARY KEY (`ID`),
   UNIQUE KEY `IDEX_ORDER_ID` (`ORDER_ID`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
