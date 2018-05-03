@@ -16,3 +16,8 @@ def openacc(request):
 @aiohttp_jinja2.template('queryacctest.html')
 def queryacc(request):
     return {}
+
+@routes.get('/rechargetest')
+@aiohttp_jinja2.template('rechargetest.html')
+def rechargetest(request):
+    return {}
