@@ -19,6 +19,9 @@ gunicorn
 
 sqlalchemy
 
+sqlacodegen
+sqlacodegen mysql://amplat:amplat@10.100.146.228:3306/amplat > models.py
+
 Polls (demo for aiohttp)
 ========================
 
