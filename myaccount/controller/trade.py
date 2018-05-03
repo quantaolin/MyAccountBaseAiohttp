@@ -1,5 +1,6 @@
 from myaccount.routes import routes
 import myaccount.model.models as model
+import decimal
 
 '''
 Created on  2018-05-03 18:28:20
@@ -13,21 +14,23 @@ async def recharge(request):
     orderId = data['orderId']
     userId = data['userId']
     amount = data['amount']
-    async with request.app['db'].acquire() as conn:
-        conn.begin()
+    async with request.app['engine'].acquire() as conn:
+        trans = await conn.begin()
         try:
-            order = model.Order().metadata
-            res = await conn.execute(order.insert().values(ORDER_ID=orderId,ORDER_TYPE='01',AMOUNT=int(amount),TO_USER_ID=userId))   
-            print(res.rowcount())                                
-            account = model.Account().metadata
-            res = await conn.execute(account.update().returning(*account.c).where(USER_ID=userId).values(AMOUNT=account.c.AMOUNT+amount))
+            order = model.Order.__table__
+            print(order)
+            res = await conn.execute(order.insert().values(ORDER_ID=orderId,ORDER_TYPE="01",AMOUNT=decimal.Decimal(amount),TO_USER_ID=userId))   
+            print(res.rowcount())
+            print('--')
+            account = model.Account.__table__
+            res = await conn.execute(account.update().returning(*account.c).where(account.c.USER_ID==userId).values(AMOUNT=account.c.AMOUNT+decimal.Decimal(amount)))
             res = res.fetchall()
             print(res)
         except Exception as e:
-                print("执行sql出错",e.args)
-                await conn.rollback()
+                print("sql execute fails",e.args)
+                await trans.rollback()
                 res=0
         else:
-                await conn.commit()
+                await trans.commit()
     resutl = {'result': res}
     return resutl

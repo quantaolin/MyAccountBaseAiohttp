@@ -1,4 +1,5 @@
 import aiomysql
+import aiomysql.sa
 '''
 Created on  2018-04-25 11:08:35
 
@@ -19,9 +20,25 @@ async def mysql_engine(app):
         init_command='select 1 from dual',
         loop=app.loop)
     app['db'] = pool
+    engine = await aiomysql.sa.create_engine(
+        host=conf['host'], 
+        port=conf['port'],
+        db=conf['db'],
+        user=conf['user'], 
+        password=conf['password'],
+        minsize=conf['minsize'],
+        maxsize=conf['maxsize'],
+        connect_timeout=conf['connect_timeout'],
+        autocommit=False,
+        init_command='select 1 from dual',
+        loop=app.loop)
+    app['engine'] = engine
     yield
     app['db'].close()
     await app['db'].wait_closed()
+    app['engine'].close()
+    await app['engine'].wait_closed()
+    
     
 def setup_engine(app):
     app.cleanup_ctx.append(mysql_engine)
