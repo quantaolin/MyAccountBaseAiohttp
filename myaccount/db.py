@@ -15,7 +15,7 @@ async def mysql_engine(app):
         minsize=conf['minsize'],
         maxsize=conf['maxsize'],
         connect_timeout=conf['connect_timeout'],
-        autocommit=True,
+        autocommit=False,
         init_command='select 1 from dual',
         loop=app.loop)
     app['db'] = pool
@@ -31,6 +31,7 @@ async def excute_insertorupdate(db,sqlstr,param):
         async with conn.cursor() as cur:
             await cur.execute(sqlstr,param)
             r=cur.rowcount
+            await conn.commit()
     return r
 
 async def excute_select_dic(db,sqlstr,param):

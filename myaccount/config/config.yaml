@@ -1,9 +1,9 @@
 mysql:
-  host: localhost
+  host: 10.100.146.228
   port: 3306
-  db: bus
-  user: root
-  password: 123qwe  
+  db: amplat
+  user: amplat
+  password: amplat  
   connect_timeout: 5000
   minsize: 1
   maxsize: 5
