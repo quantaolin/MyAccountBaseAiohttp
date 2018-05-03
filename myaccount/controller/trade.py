@@ -18,7 +18,7 @@ async def recharge(request):
         trans = await conn.begin()
         try:
             order = model.Order.__table__
-            print(order)
+            print(order.insert)
             res = await conn.execute(order.insert().values(ORDER_ID=orderId,ORDER_TYPE="01",AMOUNT=decimal.Decimal(amount),TO_USER_ID=userId))   
             print(res.rowcount())
             print('--')
