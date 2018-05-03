@@ -16,8 +16,6 @@ class Account(Base):
     USER_ID = Column(String(45), nullable=False)
     BALANCE = Column(Numeric(10, 0), nullable=False)
     
-a = Account()
-a.metadata.insert().values()
 
 class Order(Base):
     __tablename__ = 'order'
