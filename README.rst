@@ -17,6 +17,8 @@ aiojobs
 
 gunicorn
 
+sqlalchemy
+
 Polls (demo for aiohttp)
 ========================
 
