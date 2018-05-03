@@ -1,5 +1,5 @@
 from myaccount.routes import routes
-import myaccount.model as model
+import myaccount.model.models as model
 
 '''
 Created on  2018-05-03 18:28:20
@@ -16,10 +16,10 @@ async def recharge(request):
     async with request.app['db'].acquire() as conn:
         conn.begin()
         try:
-            order = model.models.Order.metadata
+            order = model.Order().metadata
             res = await conn.execute(order.insert().values(ORDER_ID=orderId,ORDER_TYPE='01',AMOUNT=int(amount),TO_USER_ID=userId))   
             print(res.rowcount())                                
-            account = model.models.Account().metadata
+            account = model.Account().metadata
             res = await conn.execute(account.update().returning(*account.c).where(USER_ID=userId).values(AMOUNT=account.c.AMOUNT+amount))
             res = res.fetchall()
             print(res)
