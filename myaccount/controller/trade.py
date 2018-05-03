@@ -17,14 +17,15 @@ async def recharge(request):
     async with request.app['engine'].acquire() as conn:
         trans = await conn.begin()
         try:
+            account = model.Account.__table__
+            print(account.update().where(account.c.USER_ID==userId).values(AMOUNT=account.c.AMOUNT+decimal.Decimal(amount)))
+            res = await conn.execute(account.update().where(account.c.USER_ID==userId).values(AMOUNT=account.c.AMOUNT+decimal.Decimal(amount)))
+            res = res.fetchall()
             order = model.Order.__table__
-            print(order.insert)
+            print(order)
             res = await conn.execute(order.insert().values(ORDER_ID=orderId,ORDER_TYPE="01",AMOUNT=decimal.Decimal(amount),TO_USER_ID=userId))   
             print(res.rowcount())
             print('--')
-            account = model.Account.__table__
-            res = await conn.execute(account.update().returning(*account.c).where(account.c.USER_ID==userId).values(AMOUNT=account.c.AMOUNT+decimal.Decimal(amount)))
-            res = res.fetchall()
             print(res)
         except Exception as e:
                 print("sql execute fails",e.args)
