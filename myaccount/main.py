@@ -6,6 +6,7 @@ import jinja2
 import aiohttp_jinja2
 from aiohttp import web
 from myaccount.db import setup_engine
+from myaccount.redis import setup_redis
 from myaccount.middlewares import setup_middlewares
 from myaccount.routes import setup_routes,setup_static_routes
 from myaccount.configverify import TRAFARET
@@ -38,6 +39,7 @@ def init(loop, argv):
         app, loader=jinja2.PackageLoader('myaccount', 'templates'))
 
     setup_engine(app)
+    setup_redis(app)
     # setup views and routes
     setup_routes(app)
     setup_static_routes(app)
