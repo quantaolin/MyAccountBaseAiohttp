@@ -32,7 +32,9 @@ async def openacc(request):
                 await conn.rollback()
                 r=0
             else:
-                await conn.commit()      
+                await conn.commit()   
+    async with  request.app['redis'].acquire() as conn:
+        await conn.lpush("py:account:test:openaccid",userId)
     print(r)
     resutl = {'result': r}
     return resutl
