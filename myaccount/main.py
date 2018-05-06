@@ -41,7 +41,6 @@ def init(loop, argv):
 
     setup_engine(app)
     setup_redis(app)
-    # setup views and routes
     setup_routes(app)
     setup_static_routes(app)
     setup_middlewares(app)
@@ -52,7 +51,11 @@ def init(loop, argv):
 
 def main(argv):
     # init logging
-    logging.basicConfig(level=logging.DEBUG)
+    logging.basicConfig(
+        level=logging.DEBUG,
+        format='%(asctime)s -- %(process)d -- %(thread)d -- %(filename)s -- %(module)s -- %(funcName)s -- %(lineno)d : %(levelname)s -- %(message)s', 
+        datefmt='%Y-%m-%d %A %H:%M:%S', 
+        filename='./logs/bussiness.txt')
 
     loop = asyncio.get_event_loop()
 
