@@ -7,6 +7,7 @@ import aiohttp_jinja2
 from aiohttp import web
 from myaccount.db import setup_engine
 from myaccount.redis import setup_redis
+from myaccount.listener import setup_listener
 from myaccount.middlewares import setup_middlewares
 from myaccount.routes import setup_routes,setup_static_routes
 from myaccount.configverify import TRAFARET
@@ -44,6 +45,7 @@ def init(loop, argv):
     setup_routes(app)
     setup_static_routes(app)
     setup_middlewares(app)
+    setup_listener(app)
 
     return app
 

@@ -16,6 +16,14 @@ TRAFARET = trafaret.Dict({
             'maxsize': trafaret.Int(),
             'connect_timeout': trafaret.Int(),
         }),
+    trafaret.Key('redis'):
+        trafaret.Dict({
+            'password': trafaret.String(),
+            'host': trafaret.String(),
+            'port': trafaret.Int(),
+            'minsize': trafaret.Int(),
+            'maxsize': trafaret.Int(),
+        }),
     trafaret.Key('host'): trafaret.IP,
     trafaret.Key('port'): trafaret.Int(),
 })
