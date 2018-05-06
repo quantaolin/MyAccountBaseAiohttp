@@ -53,13 +53,13 @@
 代码简析
 ========================
 
-*对外接口都在controller包中
-*listenerpg包中实现了一个监听器，监听开户接口中放入redis的一个id，然后请求了一下百度首页。该功能模拟一些需要异步实现的一些功能
-*整体框架使用aiohttp，连接数据库使用aiomysql，连接redis使用aioredis。
-*开户模块使用的是直接执行sql的方式访问数据库，充值/转账模块使用orm方式访问数据
-*日志模块使用python自带的logging模块
-*加载了拦截器在middlewares.py中，对返回消息中为字典的自动转换为json格式
-*model中是sqlalchemy的表描述类
+* 对外接口都在controller包中_
+* listenerpg包中实现了一个监听器，监听开户接口中放入redis的一个id，然后请求了一下百度首页。该功能模拟一些需要异步实现的一些功能_
+* 整体框架使用aiohttp，连接数据库使用aiomysql，连接redis使用aioredis_
+* 开户模块使用的是直接执行sql的方式访问数据库，充值/转账模块使用orm方式访问数据_
+* 日志模块使用python自带的logging模块_
+* 加载了拦截器在middlewares.py中，对返回消息中为字典的自动转换为json格式_
+* model中是sqlalchemy的表描述类_
 
 关于ORM生成
 ========================
