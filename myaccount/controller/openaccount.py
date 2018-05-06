@@ -1,5 +1,6 @@
 from myaccount.routes import routes
 import myaccount.db as db
+import logging
 '''
 Created on 2018-04-25 11:08:35
 
@@ -14,6 +15,7 @@ async def openacc(request):
     userParam=(userId,data['userName'],data['sex'],data['cardNum'])
     accSqlstr="insert into account (ACCOUNT_ID,ACCOUNT_TYPE,USER_ID,BALANCE) values (%s,%s,%s,%s)"
     accParam=(data['accountId'],data['accountType'],userId,0)
+    logging.info("begin start insert db")
     async with request.app['db'].acquire() as conn:
         async with conn.cursor() as cur:
             await conn.begin()
