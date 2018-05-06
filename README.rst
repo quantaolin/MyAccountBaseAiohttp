@@ -81,12 +81,15 @@ sqlalchemy的model可以使用sqlacodegen自动生成
 
 * Nginx+Supervisord
 
-Supervisord是一个进程监控器，可以实现进程自启动的功能，对于一个包可以配置自启动多个进程，但是因为一个进程只能监控一个端口，因此该种部署方式，需要在Supervisord配置的启动命令中传入进程号，程序根据进程号读取不同配置文件，监控不同端口。这种部署方式的好处是程序运行速度相对较快，但是部署比较复杂，
+Supervisord是一个进程监控器，可以实现进程自启动的功能，对于一个包可以配置自启动多个进程，但是因为一个进程只能监控一个端口，因此该种部署方式，需要在Supervisord配置的启动命令中传入进程号，
+程序根据进程号读取不同配置文件，监控不同端口。这种部署方式的好处是程序运行速度相对较快，但是部署比较复杂.
 
 * Nginx+Gunicorn（推荐）
 
-Gunicorn是一个web容器，本身具有一个master进程，启动多个工作进程。使用Gunicorn部署aiohttp会把aiohttp当作工作进程来启动。这种部署方式的好处是全部监控一个端口，部署维护简单。缺点是程序运行速度稍慢（ slightly slower）
-  如果使用Gunicorn部署，需要修改main.py中的main函数最后一行::
+Gunicorn是一个web容器，本身具有一个master进程，启动多个工作进程。使用Gunicorn部署aiohttp会把aiohttp当作工作进程来启动。这种部署方式的好处是全部监控一个端口，部署维护简单。
+缺点是程序运行速度稍慢（ slightly slower）
+
+ 如果使用Gunicorn部署，需要修改main.py中的main函数最后一行::
   
   web.run_app(app,
                 host=app['config']['host'],
