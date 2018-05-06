@@ -33,9 +33,9 @@
 启动
 ========================
 
-如果在eclipse环境中，点开main.py文件，右键Run As->Python Run即可启动
+* 如果在eclipse环境中，点开main.py文件，右键Run As->Python Run即可启动
 
-在命令行下执行::
+* 在命令行下执行::
 
     $ python3 myaccount
     
