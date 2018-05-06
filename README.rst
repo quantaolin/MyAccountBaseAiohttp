@@ -66,10 +66,10 @@
 
 sqlalchemy的model可以使用sqlacodegen自动生成
 
-首先安装sqlacodegen包：
+首先安装sqlacodegen包::
 
     $ pip3 install sqlacodegen
 
-然后执行命令：
+然后执行命令::
 
     $ sqlacodegen mysql://user:passwor@ip:port/db > models.py
