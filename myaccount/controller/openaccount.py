@@ -48,5 +48,6 @@ async def queryacc(request):
     param=(data['userId'])
     r= await db.excute_select_dic(request.app['db'],sqlstr,param)
     print(r)
+    logging.info("the result:",r)
     data = {'result': r}
     return data
