@@ -8,7 +8,7 @@
 
 需要安装3.6以上版本python并安装python包管理工具pip。注意：mac默认安装了python2.x版本，在执行本demo时需要指定使用python3
 
-执行以下命令以安装相应包：
+执行以下命令以安装相应包::
     $ pip3 install aiohttp
     $ pip3 install aiohttp_jinja2
     $ pip3 install trafaret_config
@@ -34,13 +34,13 @@
 
 如果在eclipse环境中，点开main.py文件，右键Run As->Python Run即可启动
 
-在命令行下执行：
+在命令行下执行::
     $ python3 myaccount
     
 测试
 ========================
 
-启动后，提供的测试页面如下：
+启动后，提供的测试页面如下::
     
    开户：http://127.0.0.1:8080/openacctest
    账户查询：http://127.0.0.1:8080/queryacctest
