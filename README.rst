@@ -91,12 +91,12 @@ Gunicorn是一个web容器，本身具有一个master进程，启动多个工作
 
  如果使用Gunicorn部署，需要修改main.py中的main函数最后一行::
   
-  原文::
+  原文:
   web.run_app(app,
                 host=app['config']['host'],
                 port=app['config']['port'])
                 
-   改为::
+   改为:
    
    return app
    
