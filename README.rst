@@ -99,6 +99,6 @@ Gunicorn是一个web容器，本身具有一个master进程，启动多个工作
   改为:
   return app
    
- Gunicorn执行命令为::
+ Gunicorn启动命令为:
 
  gunicorn myaccount --bind ip:port --worker-class aiohttp.GunicornWebWorker
