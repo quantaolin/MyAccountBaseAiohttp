@@ -70,7 +70,6 @@
 ========================
 
 有些情况下需要先返回结果给前端，后端异步处理一些业务。在openaccount.py文件的38行做了一个示例，这种方式可以启动一个异步task非阻塞的执行::
-
 request.loop.create_task(writeredis(request,userId))
 
 关于ORM生成
