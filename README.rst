@@ -77,7 +77,9 @@ sqlalchemy的model可以使用sqlacodegen自动生成
 关于redis
 ========================
 
-aioredis现有版本不支持redis cluster。如果生产环境需要使用redis，建议使用redis-py-cluster。使用redis-py-cluster导致的后果就是在请求redis时，进程会进入block，但是考虑到redis请求的速度较快，效率影响较小。等待aioredis支持redis cluster后可以考虑改用aioredis。
+aioredis现有版本不支持redis cluster。如果生产环境需要使用redis，建议使用redis-py-cluster。
+使用redis-py-cluster导致的后果就是在请求redis时，进程会进入block，但是考虑到redis请求的速度较快，效率影响较小。
+等待aioredis支持redis cluster后可以考虑改用aioredis。
     
 工程化部署
 ========================  
