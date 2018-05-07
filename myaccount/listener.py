@@ -1,11 +1,11 @@
-import myaccount.listenerpg as lis
+import myaccount.listenerpg.openacclistener as lis
 '''
 Created on  2018-04-25 11:08:35
 
 @author: quantaolin
 '''
 async def openacclistener(app):
-    app['openacc_listener'] = app.loop.create_task(lis.openacclistener(app))
+    app['openacc_listener'] = app.loop.create_task(lis.listener_openacc(app))
     yield
     app['openacc_listener'].cancel()
     await app['openacc_listener']

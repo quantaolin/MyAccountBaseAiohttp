@@ -18,7 +18,6 @@ TRAFARET = trafaret.Dict({
         }),
     trafaret.Key('redis'):
         trafaret.Dict({
-            'password': trafaret.String(),
             'host': trafaret.String(),
             'port': trafaret.Int(),
             'minsize': trafaret.Int(),

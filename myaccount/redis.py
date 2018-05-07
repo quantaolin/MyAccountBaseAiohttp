@@ -9,7 +9,6 @@ async def redis_pool(app):
     conf = app['config']['redis']
     pool = await aioredis.create_pool(
         (conf['host'],conf['port']),
-        password=conf['password'],
         minsize=conf['minsize'],
         maxsize=conf['maxsize'],
         create_connection_timeout=None, 

@@ -1,5 +1,6 @@
 import asyncio
 import aiohttp
+import logging
 '''
 Created on  2018-04-25 11:08:35
 
@@ -7,16 +8,18 @@ Created on  2018-04-25 11:08:35
 '''
 async def listener_openacc(app):
     try:
-        async with app['redis'].acquire() as conn:
+        with await app['redis'] as conn:
             while True:   
-                msg = await conn.lpop("py:account:test:openaccid")
+                msg = await conn.execute('lpop','py:account:test:openaccid')
+                print('get msg=',msg)
                 if msg == None or msg.strip()=='':
-                    await asyncio.sleep(5)
+                    await asyncio.sleep(1)
                     continue
                 async with aiohttp.ClientSession() as session:
                     async with session.get('http://www.baidu.com') as resp:
-                        print(resp.status)
-                        print(await resp.text())
-                await asyncio.sleep(5)   
+                        logging.info('get baidu sucess＝',resp.status)
+                        print('get baidu result',resp.status)
+                        print('get baidu result',await resp.text())
+                await asyncio.sleep(1)   
     except asyncio.CancelledError:
         pass    
