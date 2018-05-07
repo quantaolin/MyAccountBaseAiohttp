@@ -1,6 +1,6 @@
 import argparse
 import asyncio
-import logging
+import logging,logging.handlers
 import sys
 import jinja2
 import aiohttp_jinja2
@@ -51,11 +51,17 @@ def init(loop, argv):
 
 def main(argv):
     # init logging
+    fomstr='%(asctime)s -- %(process)d -- %(thread)d -- %(filename)s -- %(module)s -- %(funcName)s -- %(lineno)d : %(levelname)s -- %(message)s'
     logging.basicConfig(
         level=logging.DEBUG,
-        format='%(asctime)s -- %(process)d -- %(thread)d -- %(filename)s -- %(module)s -- %(funcName)s -- %(lineno)d : %(levelname)s -- %(message)s', 
-        datefmt='%Y-%m-%d %A %H:%M:%S', 
-        filename='./logs/bussiness.txt')
+        format=fomstr, 
+        datefmt='%Y-%m-%d %A %H:%M:%S')
+    filehandler = logging.handlers.TimedRotatingFileHandler("./logs/bussiness.log", when='D', interval=1)
+    filehandler.suffix="%Y-%m-%d.log"
+    filehandler.setLevel(logging.DEBUG)
+    formatter = logging.Formatter(fomstr)
+    filehandler.setFormatter(formatter)
+    logging.getLogger('').addHandler(filehandler)
 
     loop = asyncio.get_event_loop()
 

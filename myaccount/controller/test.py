@@ -12,6 +12,10 @@ Created on  2018-04-27 14:02:16
 def openacc(request):
     return {}
 
+@routes.get('/opeacclistentest')
+def opeacclistentest(request):
+    return "sucess"
+
 @routes.get('/queryacctest')
 @aiohttp_jinja2.template('queryacctest.html')
 def queryacc(request):

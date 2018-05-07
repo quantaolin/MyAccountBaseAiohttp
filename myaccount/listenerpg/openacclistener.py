@@ -11,15 +11,15 @@ async def listener_openacc(app):
         with await app['redis'] as conn:
             while True:   
                 msg = await conn.execute('lpop','py:account:test:openaccid')
-                print('get msg=',msg)
                 if msg == None or msg.strip()=='':
                     await asyncio.sleep(1)
                     continue
+                print('get openacc:',msg)
                 async with aiohttp.ClientSession() as session:
-                    async with session.get('http://www.baidu.com') as resp:
-                        logging.info('get baidu sucess＝',resp.status)
-                        print('get baidu result',resp.status)
-                        print('get baidu result',await resp.text())
+                    async with session.get('http://127.0.0.1:8080/opeacclistentest') as resp:
+                        logging.info('get result:%s',resp.status)
+                        print('get result',resp.status)
+                        print('get result',await resp.text())
                 await asyncio.sleep(1)   
     except asyncio.CancelledError:
         pass    
