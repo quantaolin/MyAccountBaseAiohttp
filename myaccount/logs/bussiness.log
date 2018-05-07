@@ -1,0 +1,33 @@
+Using selector: KqueueSelector
+Creating tcp connection to ('10.100.137.94', 7000)
+begin start insert db
+Creating tcp connection to ('10.100.137.94', 7000)
+lpush redis
+127.0.0.1 [07/May/2018:03:23:07 +0000] "POST /openacc HTTP/1.1" 200 170 "http://127.0.0.1:8080/openacctest" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.7 (KHTML, like Gecko) Version/9.1.2 Safari/601.7.7"
+2018-05-07 11:23:58,398 -- 1251 -- 140735325962240 -- selector_events.py -- selector_events -- __init__ -- 65 : DEBUG -- Using selector: KqueueSelector
+2018-05-07 11:23:58,547 -- 1251 -- 140735325962240 -- connection.py -- connection -- create_connection -- 104 : DEBUG -- Creating tcp connection to ('10.100.137.94', 7000)
+2018-05-07 11:24:04,896 -- 1251 -- 140735325962240 -- openaccount.py -- openaccount -- openacc -- 18 : INFO -- begin start insert db
+2018-05-07 11:24:04,910 -- 1251 -- 140735325962240 -- connection.py -- connection -- create_connection -- 104 : DEBUG -- Creating tcp connection to ('10.100.137.94', 7000)
+2018-05-07 11:24:04,918 -- 1251 -- 140735325962240 -- openaccount.py -- openaccount -- openacc -- 39 : INFO -- lpush redis
+2018-05-07 11:24:04,924 -- 1251 -- 140735325962240 -- helpers.py -- helpers -- log -- 476 : INFO -- 127.0.0.1 [07/May/2018:03:24:04 +0000] "POST /openacc HTTP/1.1" 200 170 "http://127.0.0.1:8080/openacctest" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.7 (KHTML, like Gecko) Version/9.1.2 Safari/601.7.7"
+2018-05-07 11:38:02,231 -- 1346 -- 140735325962240 -- selector_events.py -- selector_events -- __init__ -- 65 : DEBUG -- Using selector: KqueueSelector
+2018-05-07 11:38:02,362 -- 1346 -- 140735325962240 -- connection.py -- connection -- create_connection -- 104 : DEBUG -- Creating tcp connection to ('10.100.137.94', 7000)
+2018-05-07 11:38:10,730 -- 1346 -- 140735325962240 -- openaccount.py -- openaccount -- openacc -- 18 : INFO -- begin start insert db
+2018-05-07 11:38:10,748 -- 1346 -- 140735325962240 -- connection.py -- connection -- create_connection -- 104 : DEBUG -- Creating tcp connection to ('10.100.137.94', 7000)
+2018-05-07 11:38:10,752 -- 1346 -- 140735325962240 -- openaccount.py -- openaccount -- openacc -- 39 : INFO -- lpush redis
+2018-05-07 11:38:10,756 -- 1346 -- 140735325962240 -- helpers.py -- helpers -- log -- 476 : INFO -- 127.0.0.1 [07/May/2018:03:38:10 +0000] "POST /openacc HTTP/1.1" 200 170 "http://127.0.0.1:8080/openacctest" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.7 (KHTML, like Gecko) Version/9.1.2 Safari/601.7.7"
+2018-05-07 11:41:44,187 -- 1377 -- 140735325962240 -- selector_events.py -- selector_events -- __init__ -- 65 : DEBUG -- Using selector: KqueueSelector
+2018-05-07 11:41:44,320 -- 1377 -- 140735325962240 -- connection.py -- connection -- create_connection -- 104 : DEBUG -- Creating tcp connection to ('10.100.137.94', 7000)
+2018-05-07 11:41:51,033 -- 1377 -- 140735325962240 -- openaccount.py -- openaccount -- openacc -- 18 : INFO -- begin start insert db
+2018-05-07 11:41:51,058 -- 1377 -- 140735325962240 -- connection.py -- connection -- create_connection -- 104 : DEBUG -- Creating tcp connection to ('10.100.137.94', 7000)
+2018-05-07 11:41:51,066 -- 1377 -- 140735325962240 -- openaccount.py -- openaccount -- openacc -- 39 : INFO -- lpush redis
+2018-05-07 11:41:51,073 -- 1377 -- 140735325962240 -- helpers.py -- helpers -- log -- 476 : INFO -- 127.0.0.1 [07/May/2018:03:41:51 +0000] "POST /openacc HTTP/1.1" 200 170 "http://127.0.0.1:8080/openacctest" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.7 (KHTML, like Gecko) Version/9.1.2 Safari/601.7.7"
+2018-05-07 11:41:51,392 -- 1377 -- 140735325962240 -- helpers.py -- helpers -- log -- 476 : INFO -- 127.0.0.1 [07/May/2018:03:41:51 +0000] "GET /opeacclistentest HTTP/1.1" 200 156 "-" "Python/3.6 aiohttp/3.1.3"
+2018-05-07 11:43:09,407 -- 1390 -- 140735325962240 -- selector_events.py -- selector_events -- __init__ -- 65 : DEBUG -- Using selector: KqueueSelector
+2018-05-07 11:43:09,543 -- 1390 -- 140735325962240 -- connection.py -- connection -- create_connection -- 104 : DEBUG -- Creating tcp connection to ('10.100.137.94', 7000)
+2018-05-07 11:43:16,617 -- 1390 -- 140735325962240 -- openaccount.py -- openaccount -- openacc -- 18 : INFO -- begin start insert db
+2018-05-07 11:43:16,634 -- 1390 -- 140735325962240 -- connection.py -- connection -- create_connection -- 104 : DEBUG -- Creating tcp connection to ('10.100.137.94', 7000)
+2018-05-07 11:43:16,641 -- 1390 -- 140735325962240 -- openaccount.py -- openaccount -- openacc -- 39 : INFO -- lpush redis
+2018-05-07 11:43:16,645 -- 1390 -- 140735325962240 -- helpers.py -- helpers -- log -- 476 : INFO -- 127.0.0.1 [07/May/2018:03:43:16 +0000] "POST /openacc HTTP/1.1" 200 170 "http://127.0.0.1:8080/openacctest" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.7 (KHTML, like Gecko) Version/9.1.2 Safari/601.7.7"
+2018-05-07 11:43:17,620 -- 1390 -- 140735325962240 -- helpers.py -- helpers -- log -- 476 : INFO -- 127.0.0.1 [07/May/2018:03:43:17 +0000] "GET /opeacclistentest HTTP/1.1" 200 156 "-" "Python/3.6 aiohttp/3.1.3"
+2018-05-07 11:43:17,621 -- 1390 -- 140735325962240 -- openacclistener.py -- openacclistener -- listener_openacc -- 20 : INFO -- get result:200
