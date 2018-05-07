@@ -6,7 +6,7 @@
 环境搭建
 ========================
 
-需要安装3.6以上版本python并安装python包管理工具pip。注意：mac默认安装了python2.x版本，在执行本demo时需要指定使用python3
+需要安装3.6以上版本python并安装python包管理工具pip，如果使用eclipse作为ide环境，需要安装PyDev插件。注意：mac默认安装了python2.x版本，在执行本demo时需要指定使用python3
 
 执行以下命令以安装相应包::
 
