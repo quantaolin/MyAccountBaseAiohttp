@@ -48,7 +48,7 @@
    账户查询：http://127.0.0.1:8080/queryacctest
    充值：http://127.0.0.1:8080/rechargetest
    转账：http://127.0.0.1:8080/transfertest
-   订单查询：http://127.0.0.1:8080/ordertest
+   订单查询：http://127.0.0.1:8080/orderquerytest
    
 日志
 ========================
@@ -65,6 +65,13 @@
 * 日志模块使用python自带的logging模块
 * 加载了拦截器在middlewares.py中，对返回消息中为字典的自动转换为json格式
 * model中是sqlalchemy的表描述类
+
+异步执行示例
+========================
+
+有些情况下需要先返回结果给前端，后端异步处理一些业务。在openaccount.py文件的38行做了一个示例，这种方式可以启动一个异步task非阻塞的执行::
+
+request.loop.create_task(writeredis(request,userId))
 
 关于ORM生成
 ========================
