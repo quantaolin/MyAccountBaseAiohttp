@@ -1,6 +1,7 @@
 from myaccount.routes import routes
 import myaccount.db as db
 import logging
+from myaccount.service.openaccredis import writeredis
 '''
 Created on 2018-04-25 11:08:35
 
@@ -25,20 +26,17 @@ async def openacc(request):
                 if(r != 1):
                     raise Exception("user sql execute fails")
                 await cur.execute(accSqlstr,accParam)
-                print(cur.description)
                 r=cur.rowcount
                 if(r != 1):
                     raise Exception("account sql execute fails")
             except Exception as e:
-                print("sql execute fails",e.args)
+                logging.error("sql execute fails",e.args)
                 await conn.rollback()
                 r=0
             else:
                 await conn.commit()   
-    with await request.app['redis'] as conn:
-        logging.info('lpush redis')
-        await conn.execute('lpush','py:account:test:openaccid',userId)
-    print(r)
+    request.loop.create_task(writeredis(request,userId))
+    logging.info('get result:%s',r)
     resutl = {'result': r}
     return resutl
 
@@ -48,7 +46,7 @@ async def queryacc(request):
     sqlstr="select * from user where user_id = %s"
     param=(data['userId'])
     r= await db.excute_select_dic(request.app['db'],sqlstr,param)
-    print(r)
+    logging.info('get result:%s',r)
     logging.info("the result:",r)
     data = {'result': r}
     return data

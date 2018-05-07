@@ -12,6 +12,7 @@ from myaccount.middlewares import setup_middlewares
 from myaccount.routes import setup_routes,setup_static_routes
 from myaccount.configverify import TRAFARET
 from trafaret_config import commandline
+from aiojobs.aiohttp import setup
 '''
 Created on 2018-04-25 11:08:35
 
@@ -45,7 +46,7 @@ def init(loop, argv):
     setup_static_routes(app)
     setup_middlewares(app)
     setup_listener(app)
-
+    setup(app)
     return app
 
 

@@ -14,12 +14,11 @@ async def listener_openacc(app):
                 if msg == None or msg.strip()=='':
                     await asyncio.sleep(1)
                     continue
-                print('get openacc:',msg)
+                logging.info('get openacc:%s',msg)
                 async with aiohttp.ClientSession() as session:
                     async with session.get('http://127.0.0.1:8080/opeacclistentest') as resp:
-                        logging.info('get result:%s',resp.status)
-                        print('get result',resp.status)
-                        print('get result',await resp.text())
+                        logging.info('get result status:%s',resp.status)
+                        logging.info('get result text:%s',await resp.text())
                 await asyncio.sleep(1)   
     except asyncio.CancelledError:
         pass    

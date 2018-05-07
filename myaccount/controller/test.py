@@ -25,3 +25,13 @@ def queryacc(request):
 @aiohttp_jinja2.template('rechargetest.html')
 def rechargetest(request):
     return {}
+
+@routes.get('/transfertest')
+@aiohttp_jinja2.template('transfertest.html')
+def transfertest(request):
+    return {}
+
+@routes.get('/orderquerytest')
+@aiohttp_jinja2.template('orderquerytest.html')
+def orderquerytest(request):
+    return {}
